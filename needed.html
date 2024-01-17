@@ -1,0 +1,676 @@
+<html lang="en-us" class=""><head>
+<meta charset="utf-8">
+<title>BoxBrownie.com – New Task</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no"> <meta http-equiv="X-UA-Compatible" content="IE=8,9,11">
+<link rel="stylesheet" href="/js/flexslider2/flexslider.css" type="text/css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Sunflower:wght@300;500;700&amp;family=Oswald:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/bootstrap-5.2.0/css/bootstrap.min.css">
+<script src="/css/bootstrap-5.2.0/js/bootstrap.bundle.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/fontawesome-5.12.1/css/all.min.css">
+<link rel="stylesheet" href="/css/icons.css">
+<link rel="stylesheet" type="text/css" href="../css/boxBrownie.css?v=9f230053c70dff391b0eac6ecdb048ccc2f3b8a2d04ae4270a33759d44818213">
+
+
+<link rel="stylesheet" type="text/css" href="/css/less/style.css?v=9317c02174e1fb24270b8b12f441c68727b91f09b5e03b8a0ac5d6f66b240747">
+
+<!--[if IE 9]><html lang="en" class="ie ie9"><![endif]-->
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/jquery-ui-1.12.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../js/jquery-ui-1.12.1.min.css">
+<script src="/js/placeholder.js"></script>
+<script src="/js/flexslider2/jquery.flexslider.js"></script>
+<script src="/js/functions.js?v=100c11702f5b6eb6fc987e291feefb9586947791e0d19265b6b3b47e76ce655c"></script>
+<script src="../js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="../js/fancybox/jquery.fancybox.css">
+<!--[if lte IE 9]>
+	<script>
+		$(document).ready(function(){
+			$('.modalOverlay').addClass('modalOverlayShow');
+			$('body').addClass('noOverflow');
+			$('.modalOverlayTrigger').addClass('modalOverlayTriggerShow');
+			$('#bodyPush').on('click',function(e) {
+				$('.modalOverlay').removeClass('modalOverlayShow');
+				$('body').removeClass('noOverflow');
+				$('.modalOverlayTrigger').removeClass('modalOverlayTriggerShow');
+			});
+		});
+	</script>
+	<section class="promoStrip">
+   		<h2>UNSUPPORTED BROWSER DETECTED. WE RECOMMEND USING A MODERN WEB BROWSER SUCH AS <a href="https://www.google.com/chrome/" target="_blank">GOOGLE CHROME</a>, <a href="https://www.mozilla.org/en-US/FIREFOX/" target="_blank">FIREFOX</a>, <a href="https://www.microsoft.com/en-us/edge" target="_blank">MICROSOFT EDGE</a>, <a href="https://www.apple.com/au/safari/" target="_blank">SAFARI</a> OR <a href="https://www.opera.com/" target="_blank">OPERA</a></h2>
+		<button class="modalOverlayTrigger" type="button" value="Close Pop Up"><i class="fas fa-times" aria-hidden="true"></i><span class="accessibilityLabel">Close Pop Up</span></button>
+	</section>
+<![endif]-->
+<script>
+	function getWidth() {
+		var width = '';
+		if (detectCss("large")) {
+			width = "25%";
+		} else if (detectCss("medium")) {
+			width = "50%";
+		} else if (detectCss("small")) {
+			width = "75%";
+		} else if (detectCss("mobile")) {
+			width = "100%";
+		}
+		return width;
+	}
+
+	$(document).ready(function(){
+		sortMenu();
+		scrollSmooth();
+		navMenu();
+		userOptionsMenu();
+
+		$(document).on('click', '#newTask', function (e) {
+			e.preventDefault();
+			$("#confirmNewTaskPopupContent").modal('show')
+			/*
+			$.fancybox.open({
+				content  : $("#confirmNewTaskPopupContent").html(),
+				autoSize : false,
+				width    : getWidth(),
+				height   : "auto",
+			});*/
+
+		});
+
+		$(document).on('click', '#confirmNewTaskBtn', function() {
+			window.location.href = "taskNew";
+		});
+
+		$(document).on('click', '.close', function() {
+			$('.fancybox-close').trigger('click');
+		});
+	});
+
+	// IE10 & IE11 grid hack (loops)
+	$(function() {
+		var ua = window.navigator.userAgent;
+		var msie = ua.indexOf("MSIE ");
+		if(parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))) < 12 || !!window.MSInputMethodContext && !!document.documentMode){
+			var breakPoint = $("div[class^=colCount] .colHead ~ .colHead");
+
+			$.each(breakPoint, function () {
+				var className = $(this).parent().attr('class');
+				$('<div class="' + className + '">').insertAfter($(this).parent()).append($(this).nextAll().andSelf());
+			});
+		}
+	});
+</script>
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body class="pushContainer transitionPush editors-dashboard ">
+<span class="modalOverlay" aria-hidden="true"></span>
+<div class="detectcss"></div>
+<a class="inlineAnchor" id="topScroll"></a>
+<header class="editors-header ">
+<div class="ed-logos-row">
+<a class="navbar-brand" href="https://www.boxbrownie.com/">
+<img src="https://d1dbtne32ilur4.cloudfront.net/img/logoDomain2018.svg" alt="BoxBrownie.com">
+</a>
+<div class="ed-notification ">
+<button type="button" class="btn btn-link btn-notification d-none">
+<i class="icon icon-alarm"></i>
+<span class="position-absolute start-100 translate-middle badge badge-sm bg-warning font-nunito">
+9
+</span>
+</button>
+<button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<i></i>
+<i></i>
+<i></i>
+</button>
+</div>
+</div>
+<nav class="members navbar-expand-xl editor-nav">
+<div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
+<div class="signUp w-100">
+<div class="userControls user-controls">
+<div class="user-avatar">
+<i class="icon icon-user avatar-icon " aria-hidden="true"></i>
+</div>
+<div class="dropdown">
+<button class="headerUserBtn userTrigger btn user-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" value="Pradeep 01">
+<span class="d-block font-nunito">Welcome, </span>
+<b class="user-name">Pradeep 01 <i class="icon icon-arrow-sm-down" aria-hidden="true"></i> </b>
+</button>
+<ul class="userOptions dropdown-menu">
+<li><a class="dropdown-item d-flex" href="/editors/userManage"><i class="icon icon-users-mm"></i><span> My Team <span>Manage team members and permissions</span></span></a></li>
+<li><a class="dropdown-item d-flex" href="/inc/logout"><i class="icon icon-logout"></i> Logout</a></li>
+</ul>
+</div>
+</div>
+<button class="menuBtn d-none"><span></span><span></span><span></span><span></span></button>
+</div>
+<ul class="nav nav-menu flex-column">
+<li class="nav-item "><a href="/editors/" class="nav-link "><i class="icon icon-nav-item icon-home"></i><span class="nav-text">Home</span></a></li>
+<li class="nav-item d-none "><a href="/editors/" class="nav-link "><i class="icon icon-nav-item icon icon-f-chat"></i><span class="nav-text">Message </span></a></li>
+<li class="nav-item nav-item-title"><span class="nav-text">Tasks</span></li>
+<li class="nav-item "><a href="reworkView" class="nav-link "><i class="icon icon-nav-item  icon-virtual-reality"></i> <span class="nav-text">Reworks</span> <span class="badge badge-fixed-24 ">0</span></a></li><li class="nav-item "><a href="taskProgressPhotography" class="nav-link "><i class="icon icon-nav-item  icon-image-job"></i> <span class="nav-text"> Current Task </span></a></li> <li class="nav-item nav-item-title"><span class="nav-text">Managements</span></li> <li class="nav-item "><a href="/editors/resources" class="nav-link "><i class="icon icon-nav-item icon-open-folder"></i><span class="nav-text">Resources</span></a></li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="modal fade" id="confirmNewTaskPopupContent" tabindex="-1" aria-labelledby="confirmNewTaskPopupContentLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title text-primary" id="confirmNewTaskPopupContentLabel">Confirmation</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body text-center">
+<p>Are you sure you want to start a new task?</p>
+</div>
+<div class="modal-footer">
+<button class="submit inlineSubmit btn btn-primary btn-sm" type="submit" id="confirmNewTaskBtn" data=""><span>Yes</span></button><button class="submit submitSecondary btn btn-secondary btn-sm inlineSubmit close" data-bs-dismiss="modal" type="submit" data=""><span>No</span></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="editor-wrapper bg-subberlight "><link rel="stylesheet" type="text/css" href="/css/jquery.countdown.css">
+<script src="/js/jquery.plugin.js"></script>
+<script src="/js/jquery.countdown.js"></script>
+<link rel="stylesheet" type="text/css" href="/js/uploadifive1.2.2/uploadifive.css">
+<script src="/js/uploadifive1.2.2/jquery.uploadifive.min.js?v=eb4d66ccef1624e1c7fde0981ab8b70a8b265fe282636cc2bce8d2a57dc5e892"></script>
+<script>
+	function refreshImages() {
+		rand = Math.floor((Math.random() * 100000) + 1);
+		url = 'ajax/photographyJobImageEditedShow?rand=' + rand + '&code=dda44a96f73ae419832dae3abd7a37b520db05f6';
+		$.get(url, function(data) {
+			$("#images").html(data);
+		});
+	}
+
+	function convertTZ(date, tzString) {
+		return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));
+	}
+
+	$(document).ready(function(){
+				refreshImages();
+		var sendData = {
+			code: 'dda44a96f73ae419832dae3abd7a37b520db05f6',
+			storagePlatform: 'minio'
+		}
+		$('#fileUpload').uploadifive({
+			'auto'             	: true,
+			'formData'         	: sendData,
+			'simUploadLimit'	: 3,
+			'queueID'          	: 'queue',
+            'buttonText'		: '<span>SELECT FILES</span>',
+			'dnd'             	: true,  //drag and drop
+			'removeCompleted'  	: true,
+			'uploadScript'     	: 'https://upload-as-sin-d0ge6.boxbrownie.com/uploadPhotographyJobFileEdited.php',
+			'successTimeout' 	: 5,
+			'onUploadComplete' 	: function(file, data) {
+				var json = $.parseJSON(data);
+                if (json.success == true) {
+                    $.ajax({
+                        url: '/editors/external/createPhotographyFileEdited',
+                        cache: false,
+                        type: 'POST',
+                        data:{
+                            fileData: json.fileData,
+                            code: 'dda44a96f73ae419832dae3abd7a37b520db05f6'
+                        },
+                        success: function(data) {
+                            refreshImages();
+                        }
+                    });
+                }
+			}
+		});
+
+		$("#flag").submit(function(event) {
+			if (!confirm("Are you sure you want to flag this task?")) {
+				event.preventDefault();
+			}
+		});
+
+		updateClock();
+	    window.setInterval(updateClock, 1000);
+	});
+
+
+	        var now = convertTZ(new Date(), 'Australia/Brisbane');
+        var due = new Date('28 Feb, 2023 8:56 AM');
+        var t = (due - now) / 1000;
+		function updateClock(){
+            if(t > 0) {
+
+
+                var seconds = Math.floor((t) % 60);
+                var minutes = Math.floor((t / 60) % 60);
+                var hours = Math.floor((t / (60 * 60)) % 24);
+                var days = Math.floor(t / (3600*24));
+                seconds = ("0" + seconds).slice(-2);
+                minutes = ("0" + minutes).slice(-2);
+                hours = ("0" + hours).slice(-2);
+                days = ("0" + days).slice(-2);
+
+				$(".clockDays").show();
+                $(".clockDays").html('<b class="time-count">'+days+'</b><span class="clockDesc">days</span>');
+                $(".clockHours").html('<b class="time-count">'+hours+'</b><span class="clockDesc">hrs</span>');
+                $(".clockMinutes").html('<b class="time-count">'+minutes+'</b><span class="clockDesc">mins</span>');
+                $(".clockSeconds").html('<b class="time-count">'+seconds+'</b><span class="clockDesc">secs</span>');
+
+                t--;
+            }
+		}
+	
+
+
+
+</script>
+<main>
+<div class="errorMessages editor-subwrapper inlineTimer alert alert-warning alert-warning-dark shadow border-0 mb-4">
+<div class="container-xxl d-flex flex-wrap align-items-center">
+<div class="countdownWrapper d-flex ms-auto fw-normal flex-wrap fs-15 align-items-center">
+<b class="text-uppercase font-sunflower fw-bold me-4">Time to Complete</b>
+<div class="d-flex align-items-center">
+<div class="clockDays d-flex align-items-center"><b class="time-count">00</b><span class="clockDesc">days</span></div>
+<div class="clockHours d-flex align-items-center ms-3"><b class="time-count">11</b><span class="clockDesc">hrs</span></div>
+<div class="clockMinutes  d-flex align-items-center ms-3"><b class="time-count">18</b><span class="clockDesc">mins</span></div>
+<div class="clockSeconds  d-flex align-items-center ms-3"><b class="time-count">46</b><span class="clockDesc">secs</span></div>
+</div>
+</div>
+</div>
+</div>
+<section class="container-xxl">
+<div class="d-flex flex-wrap align-items-center justify-content-between ">
+<div>
+<h1 class="page-job-title"> Matintie 5 - Habita Marita <span class="text-primary fs-5"> (B 7605 3373 6206)</span></h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb breadcrumb-members mb-24">
+<li class="breadcrumb-item active" aria-current="page">PHOTOGRAPHY TASK PROGRESS</li>
+</ol>
+</nav>
+</div>
+<div class="btnRowSecondary text-end mb-24">
+<a class="submit btn btn-primary btn-sm" href="https://boxbrownie.b-cdn.net/photography/originals/zips/dda44a96f73ae419832dae3abd7a37b520db05f6.zip" download=""><span>DOWNLOAD ZIP</span></a>
+</div>
+</div>
+<div class="editsOuter card card-dashboard mb-24">
+<h2 class="card-header text-secondary">IMAGES</h2>
+<div class="editsWrapperCompare card-body pt-0 pb-md-0">
+<div class="row g-38">
+<div class="col-12 col-md-6 col-lg-4 pt-24 pb-md-3">
+<div class="row g-6-6 row-cols-3 fileGroupImages">
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/c389eeacf5a89270aa55716c4555023e7324d1d2.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/c389eeacf5a89270aa55716c4555023e7324d1d2.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/c389eeacf5a89270aa55716c4555023e7324d1d2-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled.jpg</label>16.02 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/69d5c84956d930c9979c3fc50df47d43b97a6364.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/69d5c84956d930c9979c3fc50df47d43b97a6364.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/69d5c84956d930c9979c3fc50df47d43b97a6364-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-10.jpg</label>14.7 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/e80bd2fd8c85f6c73961b6c3a1c6a7696c6af8c2.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/e80bd2fd8c85f6c73961b6c3a1c6a7696c6af8c2.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/e80bd2fd8c85f6c73961b6c3a1c6a7696c6af8c2-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-11.jpg</label>15.05 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/7de8a1a8013ecdfe1a557d6535a333e099a9ff5d.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/7de8a1a8013ecdfe1a557d6535a333e099a9ff5d.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/7de8a1a8013ecdfe1a557d6535a333e099a9ff5d-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-12.jpg</label>16.19 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/ff59a488eac352895d8a57836595ac3f870422ba.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/ff59a488eac352895d8a57836595ac3f870422ba.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/ff59a488eac352895d8a57836595ac3f870422ba-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-13.jpg</label>6.92 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/e10c9d7a0656fc61fd0781971f476e52f2a9f02e.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/e10c9d7a0656fc61fd0781971f476e52f2a9f02e.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/e10c9d7a0656fc61fd0781971f476e52f2a9f02e-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-14.jpg</label>11.18 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/3c3e37809960b4d31e046fbb9dc0eed786f7f9e3.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/3c3e37809960b4d31e046fbb9dc0eed786f7f9e3.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/3c3e37809960b4d31e046fbb9dc0eed786f7f9e3-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-17.jpg</label>15.97 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/cf0b510424a22b18783ca89436568698ed3d07b3.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/cf0b510424a22b18783ca89436568698ed3d07b3.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/cf0b510424a22b18783ca89436568698ed3d07b3-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-18.jpg</label>15.46 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/622dbdea28137b72899a08ef67340037335f99c4.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/622dbdea28137b72899a08ef67340037335f99c4.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/622dbdea28137b72899a08ef67340037335f99c4-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-19.jpg</label>7.19 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/e782c31566ab216b73f77f6de08f01702edd9aae.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/e782c31566ab216b73f77f6de08f01702edd9aae.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/e782c31566ab216b73f77f6de08f01702edd9aae-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-2.jpg</label>16.5 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/ea8f40661c6132608d9b92bb612e9543bed544c5.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/ea8f40661c6132608d9b92bb612e9543bed544c5.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/ea8f40661c6132608d9b92bb612e9543bed544c5-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-20.jpg</label>12.82 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/3a625e046d95fd8c4f175b884ed62d97b1714261.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/3a625e046d95fd8c4f175b884ed62d97b1714261.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/3a625e046d95fd8c4f175b884ed62d97b1714261-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-22.jpg</label>15.05 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/cda0344ad3bea0e299d4648a844db69da22dc15f.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/cda0344ad3bea0e299d4648a844db69da22dc15f.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/cda0344ad3bea0e299d4648a844db69da22dc15f-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-29.jpg</label>13.04 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/9f805e4d9a3403de7046bcf07d26d3e806708691.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/9f805e4d9a3403de7046bcf07d26d3e806708691.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/9f805e4d9a3403de7046bcf07d26d3e806708691-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-3.jpg</label>5.51 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/eff702593b007ba5af84955a78d724ba0908618f.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/eff702593b007ba5af84955a78d724ba0908618f.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/eff702593b007ba5af84955a78d724ba0908618f-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-30.jpg</label>14.98 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/e3dd651c187e733aac8761472c41900d431284d7.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/e3dd651c187e733aac8761472c41900d431284d7.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/e3dd651c187e733aac8761472c41900d431284d7-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-31.jpg</label>5.65 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/7e2a5929dd63aa56582fd7bcf833585a02813178.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/7e2a5929dd63aa56582fd7bcf833585a02813178.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/7e2a5929dd63aa56582fd7bcf833585a02813178-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-32.jpg</label>7.92 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/8fc94d712351ecf7842f746799d1d96d0321a24b.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/8fc94d712351ecf7842f746799d1d96d0321a24b.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/8fc94d712351ecf7842f746799d1d96d0321a24b-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-35.jpg</label>14.3 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/400dcc50d64eb1c54986ba821d5919d3302e0674.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/400dcc50d64eb1c54986ba821d5919d3302e0674.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/400dcc50d64eb1c54986ba821d5919d3302e0674-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-4.jpg</label>9.67 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/c13cfa7bd2a4b8a1956c816e14c408e8a7733831.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/c13cfa7bd2a4b8a1956c816e14c408e8a7733831.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/c13cfa7bd2a4b8a1956c816e14c408e8a7733831-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-41.jpg</label>12.71 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/d71ac2ef3ff7257be94462c70ac9abb6474c3885.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/d71ac2ef3ff7257be94462c70ac9abb6474c3885.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/d71ac2ef3ff7257be94462c70ac9abb6474c3885-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-42.jpg</label>11.62 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/f80007597413cbfb618da2bde92c2060602e8f72.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/f80007597413cbfb618da2bde92c2060602e8f72.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/f80007597413cbfb618da2bde92c2060602e8f72-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-43.jpg</label>11.6 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/2d608f52fb0733cf1603e8c90dcee4e8e5c158a1.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/2d608f52fb0733cf1603e8c90dcee4e8e5c158a1.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/2d608f52fb0733cf1603e8c90dcee4e8e5c158a1-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-44.jpg</label>13.65 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/d5411f802fc37dbf46c654b47e770956723d7599.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/d5411f802fc37dbf46c654b47e770956723d7599.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/d5411f802fc37dbf46c654b47e770956723d7599-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-45.jpg</label>3.5 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/180f23eb888b6fbdec20295c2101e9b3730ce846.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/180f23eb888b6fbdec20295c2101e9b3730ce846.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/180f23eb888b6fbdec20295c2101e9b3730ce846-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-46.jpg</label>6.21 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/9ebe91d3979d1887516e52fed42c15365d77a2d8.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/9ebe91d3979d1887516e52fed42c15365d77a2d8.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/9ebe91d3979d1887516e52fed42c15365d77a2d8-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-48.jpg</label>16.43 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/ecad5ee23b0003c7e5658f12a6f7d58fe630d5a8.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/ecad5ee23b0003c7e5658f12a6f7d58fe630d5a8.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/ecad5ee23b0003c7e5658f12a6f7d58fe630d5a8-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-49.jpg</label>15.44 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/42af32e82eab4aed418c4845fda3bb64af6c6aa1.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/42af32e82eab4aed418c4845fda3bb64af6c6aa1.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/42af32e82eab4aed418c4845fda3bb64af6c6aa1-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-50.jpg</label>15.41 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/3a56d7cb2344e7c1fdcfbff54a1a4a565150fb6d.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/3a56d7cb2344e7c1fdcfbff54a1a4a565150fb6d.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/3a56d7cb2344e7c1fdcfbff54a1a4a565150fb6d-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-51.jpg</label>13.93 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+ </div>
+ <div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/c7069505a2a96703e72c6ef65da0c33bb284e756.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/c7069505a2a96703e72c6ef65da0c33bb284e756.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/c7069505a2a96703e72c6ef65da0c33bb284e756-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-52.jpg</label>9.74 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/949abc3d4e89f23d969b51403ebb55c3e7241185.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/949abc3d4e89f23d969b51403ebb55c3e7241185.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/949abc3d4e89f23d969b51403ebb55c3e7241185-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-53.jpg</label>6.51 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/8014999d02e6bba0fa874582ecd41863f72463b0.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/8014999d02e6bba0fa874582ecd41863f72463b0.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/8014999d02e6bba0fa874582ecd41863f72463b0-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-56.jpg</label>14.96 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/f5d6d90b6c0a85f5d24bfce938e4523c3f018ecb.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/f5d6d90b6c0a85f5d24bfce938e4523c3f018ecb.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/f5d6d90b6c0a85f5d24bfce938e4523c3f018ecb-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-57.jpg</label>8.76 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/e984e05e4bcaa491ca5983b6e7ddcd41bb063254.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/e984e05e4bcaa491ca5983b6e7ddcd41bb063254.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/e984e05e4bcaa491ca5983b6e7ddcd41bb063254-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-6.jpg</label>13.97 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/cf418b714be68ed1a4ca5f771d57aad28addc4d7.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/cf418b714be68ed1a4ca5f771d57aad28addc4d7.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/cf418b714be68ed1a4ca5f771d57aad28addc4d7-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-60.jpg</label>13.31 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/f94fd696c80d74781467d2a8f14af56f7d6a6db7.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/f94fd696c80d74781467d2a8f14af56f7d6a6db7.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/f94fd696c80d74781467d2a8f14af56f7d6a6db7-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-63.jpg</label>14.74 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+<div class="colSpan1 col">
+<a class="mb-12 item-img-download download-sm" href="https://boxbrownie.b-cdn.net/photography/originals/0bdb01474f582667c950328d1288535bc672b16f.jpg" download="https://boxbrownie.b-cdn.net/photography/originals/0bdb01474f582667c950328d1288535bc672b16f.jpg">
+<img class="w-100 border" src="https://boxbrownie.b-cdn.net/photography/originals/0bdb01474f582667c950328d1288535bc672b16f-600.jpg" alt="">
+<span class="img-size-info"><label class="img-filename">untitled-79.jpg</label>20.01 MB</span>
+<span class="download-img text-decoration-none"><i class="icon icon-data-download"></i>Download</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-4 p-0">
+<div class="card job-detials-card minh-100">
+<div class="card-body">
+<h5 class="h5">Edits</h5>
+<p><strong>Edit Type:</strong> Image Enhancement Real Estate</p>
+<p>The client has requested the following <b class="text-success">10 steps</b> from the step process:</p><ul class=" list-of-preferences"><li><strong>1.</strong> Image sharpening</li><li><strong>2.</strong> HDR bracketing with indoor window replacement</li><li><strong>3.</strong> Dust spot removal</li><li><strong>4.</strong> Tone adjustment</li><li><strong>5.</strong> Sky Replacement</li><li><strong>6.</strong> Brightness &amp; contrast adjustment</li><li><strong>7.</strong> Lens distortion removal</li><li><strong>8.</strong> Remove minor blemishes</li><li><strong>9.</strong> Vertical &amp; horizontal straightening</li><li><strong>10.</strong> White balancing</li></ul><p>The client has <strong class="text-danger">not selected</strong> the following:</p><ul class="list-of-preferences"><li><strong>1.</strong> Remove photographer’s reflection</li><li><strong>2.</strong> Add fire to fireplaces</li><li><strong>3.</strong> Flash reflection removal</li><li><strong>4.</strong> TV screen replacement</li><li><strong>5.</strong> Ocean/River Water Enhancement</li><li><strong>6.</strong> Remove pool cleaners from water</li><li><strong>7.</strong> Lawn enhancement – repair or replace</li></ul> </div>
+</div>
+</div>
+<div class="col-12 col-md-12 col-lg-4 p-0">
+<div class="card job-detials-card minh-100 card-body">
+<h5>Flag Task</h5>
+<form id="flag" action="" method="post">
+<label for="photographyJobFlaggedComment" class="form-label">Reason for flagging</label>
+<textarea name="photographyJobFlaggedComment" class="form-control mb-24" rows="4" id="photographyJobFlaggedComment"></textarea>
+<div class="btnRowSecondary">
+<button class="submit flag btn btn-sm btn-primary" type="submit" name="flag" value="Flag"><span>FLAG</span></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="section  p-0">
+<div class="card card-dashboard">
+<h2 class="card-header text-secondary">UPLOAD FILES</h2>
+<form action="" method="POST" class="card-body">
+<div class="userSelection16">
+<span class="itemHead">
+<input type="hidden" id="photographyJobCode" name="photographyJobCode" value="dda44a96f73ae419832dae3abd7a37b520db05f6">
+<p>Once <strong>all 17</strong> edited files have been uploaded hit the <strong>Complete task</strong> button which will record payment for this task.</p>
+<div id="queue" class="row g-12-12 row-cols-2 row-cols-xxl-3 upload-itemplaceholder"></div>
+<div id="uploadifive-fileUpload" class="uploadifive-button" style="height: 30px; line-height: 30px; overflow: hidden; position: relative; text-align: center; width: 100px;"><span>SELECT FILES</span><input id="fileUpload" name="fileUpload" type="file" multiple="" style="display: none;"><input type="file" style="font-size: 30px; opacity: 0; position: absolute; right: -3px; top: -3px; z-index: 999;" multiple="multiple" accept=""></div>
+<div class="dragDropTarget filedrag-and-drop mb-24">
+<span class="dragFilesHead"><span>DRAG FILES</span></span>
+<div class="row g-12-12 row-cols-3  row-cols-lg-4  row-cols-xxl-6 upload-itemplaceholder" id="images"></div>
+</div>
+</span>
+</div>
+<div class="btnRow">
+<button class="submit start btn btn-primary btn-sm" type="submit" name="submit" value="Complete Task"><span>COMPLETE TASK</span></button>
+</div>
+</form>
+</div>
+</section>
+</section>
+</main>
+</div>
+<footer class="d-none">
+<section class="footerContent">
+<div class="colCount4">
+<div class="colSpan1">
+<a class="logo" href="/"><img src="https://d1dbtne32ilur4.cloudfront.net/img/logoSecondary2018.svg" alt="BoxBrownie.com"></a>
+</div>
+</div>
+</section>
+<section class="copyright">
+<p><img src="https://d1dbtne32ilur4.cloudfront.net/img/logoPrimary2018.svg" alt="BoxBrownie.com"> © BoxBrownie.com Pty Ltd. All Rights Reserved.</p>
+</section>
+</footer>
+
+<div class="modal fade" id="globalBootstrapModal" tabindex="-1" aria-labelledby="globalBootstrapModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" data-modalglobal="size">
+<div class="modal-content">
+<div class="modal-header" data-modalglobal="header">
+<h5 class="modal-title text-primary" id="globalBootstrapModalLabel" data-modalglobal="title">Warning</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body text-center">
+<button type="button" class="btn-close modal-close" data-modalglobal="bodyclose" data-bs-dismiss="modal" aria-label="Close"></button>
+<div data-modalglobal="body" class="gallery modal-body-scrollable"></div>
+</div>
+<div class="modal-footer d-none" data-modalglobal="footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="globalBootstrapToast" class="toast align-items-center " role="alert" aria-live="assertive" aria-atomic="true">
+<div class="d-flex toast-content-icon">
+<i class="toast-icon icon icon-check"></i>
+<div class="toast-body " data-toastbody="">
+Hello, world! This is a toast message.
+</div>
+<button type="button" class="btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+</div>
+</div>
+
+
+<a href="#" class="btn btn-primary btn-goto-top"><i class="icon icon-arrow-up"></i></a>
+
+<script>
+		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+		$(document).ajaxComplete(function() {
+				const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+				const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+		});
+
+		
+	</script>
+
+</body></html>
